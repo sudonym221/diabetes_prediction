@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Diabetes Prediction Form</h2>
+    <form action="/predict" method="post">
+        {% for field in ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness',
+                         'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age'] %}
+            <label>{{ field }}</label>
+            <input type="text" name="{{ field }}" required>
+        {% endfor %}
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
